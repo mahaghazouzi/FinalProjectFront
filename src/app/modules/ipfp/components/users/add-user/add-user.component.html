@@ -1,0 +1,66 @@
+<div class="flex min-w-0 flex-auto flex-col">
+
+    <!-- Header -->
+    <div class="bg-card flex flex-0 flex-col border-b p-6 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-8">
+        <!-- Titre et lien -->
+        <div class="min-w-0 flex-1">
+            <div class="flex flex-wrap items-center font-medium">
+                <div>
+                    <a class="whitespace-nowrap text-primary-500">Gestion des utilisateurs</a>
+                </div>
+            </div>
+            <div class="mt-2">
+                <h2 class="truncate text-3xl font-extrabold leading-7 tracking-tight sm:leading-10 md:text-4xl">
+                    Ajouter un utilisateur
+                </h2>
+            </div>
+        </div>
+
+        <!-- Bouton retour -->
+        <div class="mt-4 sm:mt-0">
+            <button
+                    mat-flat-button
+                    color="accent"
+                    class="rounded-full"
+                    [routerLink]="['/list-users']"
+            >
+                <mat-icon class="mr-2">arrow_back</mat-icon>
+                Retourner à la liste
+            </button>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <div class="flex-auto p-6 sm:p-10">
+        <div class="w-full">
+            <form
+                    class="bg-white mt-8 flex w-full flex-col space-y-6 rounded-2xl p-8 shadow"
+                    [formGroup]="userForm"
+            >
+
+                <!-- Inputs côte à côte -->
+                <div class="flex flex-wrap gap-4 w-full">
+                    <mat-form-field class="flex-1 min-w-[200px]">
+                        <mat-label>Nom d'utilisateur</mat-label>
+                        <input matInput formControlName="username" autocomplete="off" />
+                    </mat-form-field>
+
+                    <mat-form-field class="flex-1 min-w-[200px]">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" autocomplete="off" />
+                    </mat-form-field>
+                </div>
+
+                <!-- Actions -->
+                <div class="mt-6 flex w-full items-center justify-end">
+                    <button (click)="reset()" type="button" mat-button>Réinitialiser</button>
+                    <button (click)="save()" class="ml-2" type="button" mat-flat-button color="primary">
+                        Enregistrer
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
